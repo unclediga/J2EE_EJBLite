@@ -3,17 +3,20 @@ package ejb;
 import data.Book;
 
 import javax.annotation.Resource;
+import javax.annotation.sql.DataSourceDefinition;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceContextType;
 import javax.persistence.Query;
-import javax.transaction.*;
+import javax.transaction.UserTransaction;
 import java.util.List;
 
 @Stateless
+//@DataSourceDefinition(name = "java:app/examplesDS", className = "org.apache.derby.jdbc.ClientDataSource", portNumber = 1527, serverName = "localhost", databaseName = "examples", user = "examples", password = "examples")
+@DataSourceDefinition(name = "java:app/examplesDS", className = "org.h2.Driver",url = "jdbc:h2:C:/Users/BorodinovI/test", user = "sa", password = "")
+
 public class EJB2 {
-    @PersistenceContext(unitName = "PU",type = PersistenceContextType.TRANSACTION)
+    @PersistenceContext(unitName = "PU")
     private EntityManager em;
 
     @Resource
@@ -26,21 +29,6 @@ public class EJB2 {
         book.setName(name + "[" + id + "]");
         em.persist(book);
         em.flush();
-//        em.getTransaction().begin();
-//        try {
-//            utx.begin();
-//            em.persist(book);
-//            em.flush();
-//            utx.commit();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            try {
-//                utx.rollback();
-//            } catch (SystemException ex) {
-//                ex.printStackTrace();
-//            }
-//        }
-//        em.getTransaction().commit();
         return book;
     }
 

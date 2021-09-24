@@ -11,36 +11,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    private static final String URL_H2 = "jdbc:h2:~/test";
 
     public static void main(String[] args) throws NamingException {
         System.out.println("Hello!");
-        System.out.println("Connection test...");
-        Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(URL_H2, "sa", "");
-            DriverManager.registerDriver(new org.h2.Driver());
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM BOOK");
-            while (resultSet.next()) {
-                int id = resultSet.getInt("id");
-                String name = resultSet.getString("name");
-                System.out.println("row " + resultSet.getRow() + " id:" + id + " name:" + name);
-            }
-            resultSet.close();
-            statement.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            if (connection != null) {
-                try {
-                    connection.close();
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
-
 
         Map<String, Object> properties = new HashMap<>();
         properties.put(EJBContainer.MODULES, new File("target/classes"));
