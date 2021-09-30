@@ -13,7 +13,7 @@ import java.util.List;
 
 @Stateless
 //@DataSourceDefinition(name = "java:app/examplesDS", className = "org.apache.derby.jdbc.ClientDataSource", portNumber = 1527, serverName = "localhost", databaseName = "examples", user = "examples", password = "examples")
-@DataSourceDefinition(name = "java:app/examplesDS", className = "org.h2.Driver",url = "jdbc:h2:C:/Users/BorodinovI/test", user = "sa", password = "")
+//@DataSourceDefinition(name = "java:app/examplesDS", className = "org.h2.Driver",url = "jdbc:h2:C:/Users/BorodinovI/test", user = "sa", password = "")
 
 public class EJB2 {
     @PersistenceContext(unitName = "PU")

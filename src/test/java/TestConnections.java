@@ -3,8 +3,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TestConnections {
     private static final String URL_derby = "jdbc:derby://localhost:1527/examples;databaseName=examples";
@@ -85,6 +83,4 @@ public class TestConnections {
         }
         Assert.assertEquals(false, exFlag);
     }
-
-
 }
