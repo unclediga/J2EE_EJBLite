@@ -6,7 +6,6 @@ import javax.ejb.embeddable.EJBContainer;
 import javax.naming.Context;
 import javax.naming.NamingException;
 import java.io.File;
-import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -49,7 +49,7 @@ public class TestConnections {
         Assert.assertEquals(false, exFlag);
     }
 
-    @Test
+//    @Test
     public void test_derby() {
         Connection connection = null;
         exFlag = false;
