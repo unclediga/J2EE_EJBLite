@@ -1,4 +1,4 @@
-import data.Book;
+package data;
 
 public class TestBooks {
     public static Book book1 = new Book(1, "First book");

@@ -21,7 +21,8 @@ public class EJB2Test {
     public static void startUp() {
         System.out.println("startUp");
         Map<String, Object> properties = new HashMap<>();
-        properties.put(EJBContainer.MODULES, new File("target/test-classes"));
+        File[] classFiles = new File[]{new File("target/classes"), new File("target/test-classes")};
+        properties.put(EJBContainer.MODULES, classFiles);
         container = EJBContainer.createEJBContainer(properties);
         System.out.println("startUp Container = " + container);
     }
