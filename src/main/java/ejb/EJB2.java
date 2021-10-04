@@ -2,13 +2,11 @@ package ejb;
 
 import data.Book;
 
-import javax.annotation.Resource;
-import javax.annotation.sql.DataSourceDefinition;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import javax.transaction.UserTransaction;
 import java.util.List;
 
 @Stateless
@@ -18,8 +16,9 @@ public class EJB2 {
     @PersistenceContext(unitName = "PU")
     private EntityManager em;
 
-    @Resource
-    UserTransaction utx;
+    @EJB
+    private EJB1 ejb1;
+
 
     public Book createBook(String name) {
         int id = getMaxId() + 1;
@@ -39,6 +38,10 @@ public class EJB2 {
     public List<Book> findAll() {
         Query query = em.createQuery("SELECT o FROM Book o");
         return query.getResultList();
+    }
+
+    public String askEJB1(){
+        return ejb1.getHello();
     }
 
 }

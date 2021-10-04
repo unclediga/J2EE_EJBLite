@@ -38,6 +38,10 @@ public class MainEJB {
                 System.out.println(b);
             }
 
+            System.out.println("Ask ejb1 inside of ejb2...");
+            System.out.println("Answer is " + ejb2.askEJB1());
+
+
         } catch (Exception e) {
             System.err.println("My:Error create WL!");
             e.printStackTrace();
