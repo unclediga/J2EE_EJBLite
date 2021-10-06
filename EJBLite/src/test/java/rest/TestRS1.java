@@ -23,7 +23,7 @@ public class TestRS1 {
 
     public HttpServer startServer() throws IOException {
         System.out.println("starting grizzly...");
-        final ResourceConfig rc = new PackagesResourceConfig("rest");
+        final ResourceConfig rc = new PackagesResourceConfig("EJBLite/src/test/java/rest");
         return GrizzlyServerFactory.createHttpServer(UriBuilder.fromUri(BASE_URI).build(), rc);
     }
 
@@ -46,7 +46,7 @@ public class TestRS1 {
         clientConfig.getProperties().put(ClientConfig.PROPERTY_FOLLOW_REDIRECTS, true);
         Client client = Client.create(clientConfig);
 
-        WebResource resource = client.resource(BASE_URI).path("rest").path("show");
+        WebResource resource = client.resource(BASE_URI).path("EJBLite/src/test/java/rest").path("show");
 
         String assa = null;
         assa = resource.path("assa").accept(MediaType.TEXT_PLAIN_TYPE).get(String.class);
